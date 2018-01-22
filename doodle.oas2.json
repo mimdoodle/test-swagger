@@ -1,0 +1,6185 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v2.0",
+    "title": "Doodle",
+    "description": ""
+  },
+  "host": "api.doodle.com",
+  "basePath": "/v2.0",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "Access-Token": {
+      "name": "Access-Token",
+      "type": "apiKey",
+      "in": "header"
+    }
+  },
+  "paths": {
+    "/users/oauth/token": {
+      "post": {
+        "operationId": "POST_users-oauth-token",
+        "summary": "Login",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/user",
+              "example": {
+                "password": "aliquip",
+                "email": "79FvC3Q4sABsOH@OaTowKRCfdafZexCZMIyUnaNTrq.bd"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          }
+        }
+      }
+    },
+    "/users/oauth/google": {
+      "get": {
+        "operationId": "GET_users-oauth-google",
+        "summary": "Login with google",
+        "tags": [
+          "Users"
+        ],
+        "description": "Login or sign up with Google by sending an HTTP POST to /api/v2.0/users/oauth/google \nThe API consumer is responsible of getting a valid access token from Google.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "google_access_token": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "google_access_token"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          }
+        }
+      }
+    },
+    "/users/oauth/facebook": {
+      "get": {
+        "operationId": "GET_users-oauth-facebook",
+        "summary": "Login with facebook",
+        "tags": [
+          "Users"
+        ],
+        "description": "Login or sign up with Facebook by sending an HTTP POST to /api/v2.0/users/oauth/facebook. The API consumer is responsible of getting a valid access token from Facebook.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "facebook_access_token": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "facebook_access_token"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          }
+        }
+      }
+    },
+    "/users/me/logout": {
+      "post": {
+        "operationId": "POST_users-me-logout",
+        "summary": "Logout",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/user",
+              "example": {
+                "push": {
+                  "deviceType": "TESTCLIENT",
+                  "deviceToken": "cillum ea aute sit"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users": {
+      "post": {
+        "operationId": "POST_users",
+        "summary": "Create account/user",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/user",
+              "example": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "reprehenderit exercitation commodo",
+                "email": "dLf7@vTqga",
+                "id": "dolore laborum enim",
+                "accessToken": "gvwWEYPEng",
+                "newsletterOptedIn": true,
+                "avatarLargeUrl": "https://rlit6",
+                "avatarSmallUrl": "http://qf",
+                "premiumEndDate": -19765003,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 2002863,
+                  "id": "fugiat",
+                  "expiration": 91002493,
+                  "isBusiness": false
+                },
+                "timeZone": "Ut magna",
+                "countryCode": "do",
+                "language": "au",
+                "locale": "qu",
+                "notificationChannels": [
+                  "PUSH"
+                ],
+                "newEmail": "zDqUfvDtt6",
+                "password": "labore",
+                "newPassword": "irure",
+                "activationCode": 68403530.45564952,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 64304147,
+                  "id": "est proident commodo laboris voluptate",
+                  "expiration": 38996275,
+                  "isBusiness": true
+                },
+                "push": {
+                  "deviceType": "ANDROID_TEST",
+                  "deviceToken": "tempor Excepteur dolore voluptate ullamco"
+                },
+                "pushDestination": {
+                  "deviceType": "ANDROID",
+                  "deviceToken": "cillum nostrud"
+                },
+                "premium": {
+                  "active": {
+                    "id": "in Except",
+                    "domain": "in aliqua"
+                  }
+                },
+                "notify": false,
+                "calendarAccounts": [
+                  {
+                    "id": 313976.26951617,
+                    "accountType": "sunt ",
+                    "displayName": "cillum occaecat labore Duis non",
+                    "calendars": [
+                      {
+                        "id": "sint",
+                        "name": "la",
+                        "primary": true,
+                        "writable": true
+                      },
+                      {
+                        "id": "Excepteur officia",
+                        "name": "eiusmod",
+                        "primary": true,
+                        "writable": false
+                      }
+                    ]
+                  }
+                ],
+                "enabledCalendars": [
+                  "ad",
+                  "Ut cillum",
+                  "adipisicing"
+                ],
+                "targetCalendarId": "laborum dolor tempor",
+                "syncTentatives": false,
+                "hasCustomizedBranding": true,
+                "hasActiveMeetMePage": true,
+                "hasAddressBookConnected": true
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          }
+        }
+      }
+    },
+    "/users/activate": {
+      "post": {
+        "operationId": "POST_users-activate",
+        "summary": "Activate account/user",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/user",
+              "example": {
+                "id": "userID",
+                "email": "mail@provider.com",
+                "activationcode": "aasdaewqwe"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          }
+        }
+      }
+    },
+    "/users/resend-activation": {
+      "post": {
+        "operationId": "POST_users-resend-activation",
+        "summary": "Resend activation",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "newEmail",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/user",
+              "example": {
+                "email": "mail@mail.com",
+                "password": "secretPwd"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "email": "mail@mail.com",
+                "name": "username"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          }
+        }
+      }
+    },
+    "/users/send-calendar-account-unavailable-email": {
+      "post": {
+        "operationId": "POST_users-send-calendar-account-unavailable-email",
+        "summary": "Send calendar acc unavailable email",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "string"
+                },
+                "calendarAccountProvider": {
+                  "type": "string"
+                },
+                "calendarAccountTitle": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "userId",
+                "calendarAccountProvider",
+                "calendarAccountTitle"
+              ]
+            }
+          },
+          {
+            "name": "client_secret",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          }
+        }
+      }
+    },
+    "/users/me/reset-push-counter": {
+      "post": {
+        "operationId": "POST_users-me-reset-push-counter",
+        "summary": "Reset push notification counter",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "string"
+                },
+                "calendarAccountProvider": {
+                  "type": "string"
+                },
+                "calendarAccountTitle": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me": {
+      "put": {
+        "operationId": "PUT_users-me",
+        "summary": "Update user",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/user",
+              "example": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "GET_users-me",
+        "summary": "My details",
+        "tags": [
+          "Users"
+        ],
+        "description": "Get a logged-in user",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me/delete": {
+      "delete": {
+        "operationId": "DELETE_users-me-delete",
+        "summary": "My user",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "password": {
+                  "type": "string"
+                }
+              },
+              "example": {
+                "password": "usersecreet"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me/avatar": {
+      "delete": {
+        "operationId": "DELETE_users-me-avatar",
+        "summary": "My avatar",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "POST_users-me-avatar",
+        "summary": "My avatar",
+        "tags": [
+          "Users"
+        ],
+        "consumes": [
+          "application/octet-stream",
+          "image/gif",
+          "image/jpeg",
+          "image/png"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me/contacts": {
+      "get": {
+        "operationId": "GET_users-me-contacts",
+        "summary": "My contacts",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "accountNr",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "integer"
+          },
+          {
+            "name": "modifiedSince",
+            "in": "query",
+            "type": "number"
+          },
+          {
+            "name": "hash",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/addressBookIncrement"
+            },
+            "examples": {
+              "application/json": {
+                "contacts": [
+                  {
+                    "groups": [
+                      "group1",
+                      "group2"
+                    ],
+                    "emails": [
+                      "email1@at.com",
+                      "email2@at.com"
+                    ],
+                    "name": "name1"
+                  },
+                  {
+                    "groups": [
+                      "group1"
+                    ],
+                    "emails": [
+                      "mail@domain.com"
+                    ],
+                    "id": "generatedID"
+                  }
+                ],
+                "timestamp": 123188212984,
+                "hash": "longsecrethash",
+                "moreAccounts": true,
+                "moreContactsInAccount": true,
+                "reinit": true
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me/polls": {
+      "get": {
+        "operationId": "GET_users-me-polls",
+        "summary": "My polls V2.0",
+        "tags": [
+          "Users"
+        ],
+        "description": "Load all my polls. This needs authentication as a logged in user. Note that internally it uses the v2.2 variant of the API!",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "limited",
+            "in": "query",
+            "description": "The apps always set this to false",
+            "type": "boolean"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "initiated",
+              "participated",
+              "commented",
+              "invited"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/poll"
+            },
+            "examples": {
+              "application/json": {
+                "id": "gae6v35wzd8drgxh",
+                "adminKey": "4px57h8p",
+                "latestChange": 1506596135110,
+                "initiated": 1506410081646,
+                "participantsCount": 3,
+                "inviteesCount": 0,
+                "type": "DATE",
+                "preferencesType": "YESNO",
+                "state": "OPEN",
+                "locale": "en_CH",
+                "title": "editprefstest1",
+                "initiator": {
+                  "name": "name",
+                  "email": "name@doodle.com",
+                  "notify": true,
+                  "avatarLargeUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                  "avatarSmallUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                  "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                },
+                "options": [
+                  {
+                    "start": 1506513600000,
+                    "allday": true,
+                    "date": 1506513600000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506600000000,
+                    "allday": true,
+                    "date": 1506600000000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506686400000,
+                    "allday": true,
+                    "date": 1506686400000,
+                    "available": true
+                  }
+                ],
+                "optionsHash": "148bbe863f76e9d3beb805f557355735",
+                "participants": [
+                  {
+                    "id": 1871027174,
+                    "name": "Martin Petrik",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1765143042,
+                    "name": "participant 2",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1052720902,
+                    "name": "participant 3",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  }
+                ],
+                "invitees": [],
+                "amINotified": true,
+                "device": "WEB",
+                "premium": {
+                  "id": "7364726284372324",
+                  "domain": "mycompany"
+                },
+                "levels": "YESNO"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me/polls/": {
+      "get": {
+        "operationId": "GET_users-me-polls-v2.2",
+        "summary": "My polls V2.2",
+        "tags": [
+          "Users"
+        ],
+        "description": "Get all polls of a specific user by sending an HTTP GET to /api/v2.0/users/me/polls with an Accept: xxx header.\n\nReturns the polls the user created and/or the ones he participated in.",
+        "produces": [
+          "application/v2.2+json"
+        ],
+        "parameters": [
+          {
+            "name": "limited",
+            "in": "query",
+            "type": "boolean"
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "initiated",
+              "participated",
+              "commented",
+              "invited"
+            ]
+          },
+          {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/poll"
+            },
+            "examples": {
+              "application/v2.2+json": {
+                "id": "gae6v35wzd8drgxh",
+                "adminKey": "4px57h8p",
+                "latestChange": 1506596135110,
+                "initiated": 1506410081646,
+                "participantsCount": 3,
+                "inviteesCount": 0,
+                "type": "DATE",
+                "preferencesType": "YESNO",
+                "state": "OPEN",
+                "locale": "en_CH",
+                "title": "editprefstest1",
+                "initiator": {
+                  "name": "name",
+                  "email": "name@doodle.com",
+                  "notify": true,
+                  "avatarLargeUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                  "avatarSmallUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                  "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                },
+                "options": [
+                  {
+                    "start": 1506513600000,
+                    "allday": true,
+                    "date": 1506513600000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506600000000,
+                    "allday": true,
+                    "date": 1506600000000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506686400000,
+                    "allday": true,
+                    "date": 1506686400000,
+                    "available": true
+                  }
+                ],
+                "optionsHash": "148bbe863f76e9d3beb805f557355735",
+                "participants": [
+                  {
+                    "id": 1871027174,
+                    "name": "Martin Petrik",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1765143042,
+                    "name": "participant 2",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1052720902,
+                    "name": "participant 3",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  }
+                ],
+                "invitees": [],
+                "amINotified": true,
+                "device": "WEB",
+                "premium": {
+                  "id": "7364726284372324",
+                  "domain": "mycompany"
+                },
+                "levels": "YESNO"
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/google-code-for-login": {
+      "get": {
+        "operationId": "GET_users-google-code-for-login",
+        "summary": "Google code for login",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "error",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "name": "name",
+                "email": "mail@doodle.com",
+                "id": "genRandID",
+                "accessToken": "accTokenSecret111111111111111111",
+                "newsletterOptedIn": false,
+                "avatarLargeUrl": "https://doodle.com/avatar.png",
+                "avatarSmallUrl": "https://alba.name",
+                "premiumEndDate": 1508067323200,
+                "activePremium": {
+                  "type": "FULL",
+                  "durationInMonths": 1,
+                  "id": "commodo amet",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "timeZone": "eiusmod dolor",
+                "countryCode": "co",
+                "language": "ma",
+                "locale": "qui",
+                "notificationChannels": [
+                  "EMAIL",
+                  "PUSH"
+                ],
+                "newEmail": "new@email.com",
+                "activationCode": 60952716,
+                "nextPremium": {
+                  "type": "TRIAL",
+                  "durationInMonths": 2,
+                  "id": "esse",
+                  "expiration": 1508067323200,
+                  "isBusiness": false
+                },
+                "push": {
+                  "deviceType": "IPHONE",
+                  "deviceToken": "animadfut"
+                },
+                "pushDestination": {
+                  "deviceType": "IPHONE_TEST",
+                  "deviceToken": "Utasdfa"
+                },
+                "premium": {
+                  "active": {
+                    "id": "ullamco irure",
+                    "domain": "domain"
+                  }
+                },
+                "notify": true,
+                "calendarAccounts": [
+                  {
+                    "id": 25500963
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "primary": true
+                      },
+                      {},
+                      {
+                        "primary": true
+                      }
+                    ],
+                    "id": 88963501
+                  },
+                  {
+                    "calendars": [
+                      {},
+                      {
+                        "id": "in ut nisi laborum",
+                        "primary": true
+                      }
+                    ],
+                    "displayName": "in ex dolore"
+                  },
+                  {
+                    "id": 56561239
+                  },
+                  {
+                    "calendars": [
+                      {}
+                    ],
+                    "displayName": "irure cillum ullamc"
+                  }
+                ],
+                "enabledCalendars": [
+                  "commodo quis dolore",
+                  "do id in",
+                  "Excepteur nisi cillum cupidatat"
+                ],
+                "targetCalendarId": "anim",
+                "syncTentatives": true
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          }
+        }
+      }
+    },
+    "/users/facebook-code-for-login": {
+      "get": {
+        "operationId": "GET_users-facebook-code-for-login",
+        "summary": "Facebook code for login",
+        "tags": [
+          "Users"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          }
+        }
+      }
+    },
+    "/users/me/tokens": {
+      "delete": {
+        "operationId": "DELETE_users-me-tokens",
+        "summary": "Delete access token",
+        "tags": [
+          "Users"
+        ],
+        "description": "Deletes users access token",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "GET_users-me-tokens",
+        "summary": "Get access token",
+        "tags": [
+          "Users"
+        ],
+        "description": "Gets users access token",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "consumerType": {
+                    "type": "string",
+                    "description": "ios-app-2014/15 token - currently returns constant value \"officialIOsApp2014-15\""
+                  },
+                  "id": {
+                    "type": "string",
+                    "description": "Access token id"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "consumertType": "irure proident minim magna"
+                },
+                {},
+                {
+                  "consumertType": "veniam",
+                  "id": "dolore"
+                }
+              ]
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ],
+              "description": ""
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me/calendars/icsfeed": {
+      "get": {
+        "operationId": "GET_users-me-calendars-icsfeed",
+        "summary": "Get calendar feed URL",
+        "tags": [
+          "calendars",
+          "Users"
+        ],
+        "description": "Gets Doodle calendar ics feed URL",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "ICS feed URL",
+              "format": "uri"
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "put": {
+        "operationId": "PUT_users-me-calendars-icsfeed",
+        "summary": "Reset calendar feed URL",
+        "tags": [
+          "calendars",
+          "Users"
+        ],
+        "description": "Reset Doodle calendar feed URL",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "string",
+              "description": "ICS feed URL",
+              "format": "uri"
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "POST_users-me-calendars-icsfeed",
+        "summary": "Add calendar by ics URL",
+        "tags": [
+          "calendars",
+          "Users"
+        ],
+        "description": "Adds a calendar feed by ics URL",
+        "consumes": [
+          "multipart/form-data",
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "url",
+            "in": "formData",
+            "description": "New calendars URL of ics feed",
+            "required": true,
+            "type": "string",
+            "format": "uri"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "description": "Indicates if the action was successful"
+                },
+                "messages": {
+                  "type": "object",
+                  "description": "Represents error messages, most commonly validation errors"
+                },
+                "invalidValues": {
+                  "type": "object",
+                  "description": "Represent values that are causing the errors."
+                },
+                "errors": {
+                  "type": "object",
+                  "description": "Similar as messages, whilst instead of actual message, it contains the problem/cause of the error."
+                }
+              },
+              "required": [
+                "success",
+                "messages",
+                "invalidValues",
+                "errors"
+              ]
+            },
+            "examples": {
+              "application/json": {
+                "success": false,
+                "messages": {
+                  "URL": "Please enter a URL."
+                },
+                "invalidValues": {},
+                "errors": {
+                  "URL": "MISSING"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me/calendars/googleauthuri/{calendarsOrContacts}": {
+      "parameters": [
+        {
+          "name": "calendarsOrContacts",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "enum": [
+            "CALENDARS",
+            "CONTACTS",
+            "NewLogin"
+          ]
+        }
+      ],
+      "get": {
+        "operationId": "GET_users-me-calendars-googleauthuri-calendarsOrContacts",
+        "summary": "Get Google authentication URL",
+        "tags": [
+          "calendars",
+          "google",
+          "Users"
+        ],
+        "description": "Initializes the Google Authentication for the specified type (calendars|contacts) by sending back the URL of the Google's account chooser",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "required": [
+                "oauthUrl"
+              ],
+              "properties": {
+                "oauthUrl": {
+                  "type": "string",
+                  "description": "Google authentication URL",
+                  "format": "uri"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/users/me/calendars/outlookauthuri/{calendarsOrContacts}": {
+      "parameters": [
+        {
+          "name": "calendarsOrContacts",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "enum": [
+            "CALENDARS",
+            "CONTACTS"
+          ]
+        }
+      ],
+      "get": {
+        "operationId": "GET_users-me-calendars-outlookauthuri-calendarsOrContacts",
+        "summary": "Get Outlook authentication URL",
+        "tags": [
+          "calendars",
+          "outlook",
+          "Users"
+        ],
+        "description": "Initializes the outlook.com Authentication for the specified type (calendars|contacts). Redirects to the outlook.com authorization URL.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "oauthURL": {
+                  "type": "string",
+                  "description": "Outlook authentication URL",
+                  "format": "uri"
+                }
+              },
+              "required": [
+                "oauthURL"
+              ]
+            }
+          },
+          "401": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "description": "a poll ID",
+          "required": true,
+          "type": "string",
+          "pattern": "^[a-z0-9]{16}"
+        }
+      ],
+      "get": {
+        "operationId": "get-poll",
+        "summary": "Get poll",
+        "tags": [
+          "Polls"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "adminKey",
+            "in": "query",
+            "description": "In the URL query string. Required if you want the poll's comments' authors and texts, or if you want the poll's participants.",
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 8,
+            "pattern": "^[a-z0-9]{8}"
+          },
+          {
+            "name": "participantKey",
+            "in": "query",
+            "description": "In the URL query string. A participantKey is set for each invitee of a by-invitation-only poll. Using this parameter, you can retrieve the participant with the corresponding participantKey.",
+            "type": "string",
+            "pattern": "^[a-z0-9]{8}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/poll"
+            },
+            "examples": {
+              "application/json": {
+                "id": "gae6v35wzd8drgxh",
+                "adminKey": "4px57h8p",
+                "latestChange": 1506596135110,
+                "initiated": 1506410081646,
+                "participantsCount": 3,
+                "inviteesCount": 0,
+                "type": "DATE",
+                "preferencesType": "YESNO",
+                "state": "OPEN",
+                "locale": "en_CH",
+                "title": "editprefstest1",
+                "initiator": {
+                  "name": "name",
+                  "email": "name@doodle.com",
+                  "notify": true,
+                  "avatarLargeUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                  "avatarSmallUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                  "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                },
+                "options": [
+                  {
+                    "start": 1506513600000,
+                    "allday": true,
+                    "date": 1506513600000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506600000000,
+                    "allday": true,
+                    "date": 1506600000000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506686400000,
+                    "allday": true,
+                    "date": 1506686400000,
+                    "available": true
+                  }
+                ],
+                "optionsHash": "148bbe863f76e9d3beb805f557355735",
+                "participants": [
+                  {
+                    "id": 1871027174,
+                    "name": "Martin Petrik",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1765143042,
+                    "name": "participant 2",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1052720902,
+                    "name": "participant 3",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  }
+                ],
+                "invitees": [],
+                "amINotified": true,
+                "device": "WEB",
+                "premium": {
+                  "id": "7364726284372324",
+                  "domain": "mycompany"
+                },
+                "levels": "YESNO"
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "put": {
+        "operationId": "PUT_polls-pollId",
+        "summary": "Update poll",
+        "tags": [
+          "Polls"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/poll",
+              "example": {
+                "id": "gae6v35wzd8drgxh",
+                "adminKey": "4px57h8p",
+                "latestChange": 1506596135110,
+                "initiated": 1506410081646,
+                "participantsCount": 3,
+                "inviteesCount": 0,
+                "type": "DATE",
+                "preferencesType": "YESNO",
+                "state": "OPEN",
+                "locale": "en_CH",
+                "title": "editprefstest1",
+                "initiator": {
+                  "name": "name",
+                  "email": "name@doodle.com",
+                  "notify": true,
+                  "avatarLargeUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                  "avatarSmallUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                  "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                },
+                "options": [
+                  {
+                    "start": 1506513600000,
+                    "allday": true,
+                    "date": 1506513600000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506600000000,
+                    "allday": true,
+                    "date": 1506600000000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506686400000,
+                    "allday": true,
+                    "date": 1506686400000,
+                    "available": true
+                  }
+                ],
+                "optionsHash": "148bbe863f76e9d3beb805f557355735",
+                "participants": [
+                  {
+                    "id": 1871027174,
+                    "name": "Martin Petrik",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1765143042,
+                    "name": "participant 2",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1052720902,
+                    "name": "participant 3",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  }
+                ],
+                "invitees": [
+                  {
+                    "participantId": -95690513,
+                    "emailAddress": "HlrFnEM4dF@RjBkd.hue",
+                    "toBeRemoved": false,
+                    "participantKey": "gk672soy",
+                    "name": "in laboris tempor ea occaecat",
+                    "phoneNumber": "nisi id"
+                  },
+                  {
+                    "emailAddress": "4Ne9dsOKoTHL@aGX.cqnx",
+                    "participantId": 10850383
+                  },
+                  {
+                    "participantId": 65180210,
+                    "phoneNumber": "nisi",
+                    "emailAddress": "F6w6jkHsSqyJ@ViJEmPUUPLJdSDsPkcDAJB.wnzv",
+                    "toBeRemoved": true,
+                    "participantKey": "hmgyn1nl"
+                  },
+                  {
+                    "participantId": 26984785,
+                    "participantKey": "pa7pkwnq",
+                    "emailAddress": "NK0@WHrNHdnDKijuWYuZPxZBQwBnGuruMpIB.dyk",
+                    "phoneNumber": "labore aliqua aute",
+                    "toBeRemoved": false,
+                    "name": "nulla pariatur"
+                  }
+                ],
+                "amINotified": true,
+                "device": "WEB",
+                "premium": {
+                  "id": "7364726284372324",
+                  "domain": "mycompany"
+                },
+                "levels": "YESNO"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/poll"
+            },
+            "examples": {
+              "application/json": {
+                "id": "gae6v35wzd8drgxh",
+                "adminKey": "4px57h8p",
+                "latestChange": 1506596135110,
+                "initiated": 1506410081646,
+                "participantsCount": 3,
+                "inviteesCount": 0,
+                "type": "DATE",
+                "preferencesType": "YESNO",
+                "state": "OPEN",
+                "locale": "en_CH",
+                "title": "editprefstest1",
+                "initiator": {
+                  "name": "name",
+                  "email": "name@doodle.com",
+                  "notify": true,
+                  "avatarLargeUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                  "avatarSmallUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                  "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                },
+                "options": [
+                  {
+                    "start": 1506513600000,
+                    "allday": true,
+                    "date": 1506513600000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506600000000,
+                    "allday": true,
+                    "date": 1506600000000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506686400000,
+                    "allday": true,
+                    "date": 1506686400000,
+                    "available": true
+                  }
+                ],
+                "optionsHash": "148bbe863f76e9d3beb805f557355735",
+                "participants": [
+                  {
+                    "id": 1871027174,
+                    "name": "Martin Petrik",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1765143042,
+                    "name": "participant 2",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1052720902,
+                    "name": "participant 3",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  }
+                ],
+                "invitees": [
+                  {
+                    "participantId": -95690513,
+                    "emailAddress": "HlrFnEM4dF@RjBkd.hue",
+                    "toBeRemoved": false,
+                    "participantKey": "gk672soy",
+                    "name": "in laboris tempor ea occaecat",
+                    "phoneNumber": "nisi id"
+                  },
+                  {
+                    "emailAddress": "4Ne9dsOKoTHL@aGX.cqnx",
+                    "participantId": 10850383
+                  },
+                  {
+                    "participantId": 65180210,
+                    "phoneNumber": "nisi",
+                    "emailAddress": "F6w6jkHsSqyJ@ViJEmPUUPLJdSDsPkcDAJB.wnzv",
+                    "toBeRemoved": true,
+                    "participantKey": "hmgyn1nl"
+                  },
+                  {
+                    "participantId": 26984785,
+                    "participantKey": "pa7pkwnq",
+                    "emailAddress": "NK0@WHrNHdnDKijuWYuZPxZBQwBnGuruMpIB.dyk",
+                    "phoneNumber": "labore aliqua aute",
+                    "toBeRemoved": false,
+                    "name": "nulla pariatur"
+                  }
+                ],
+                "amINotified": true,
+                "device": "WEB",
+                "premium": {
+                  "id": "7364726284372324",
+                  "domain": "mycompany"
+                },
+                "levels": "YESNO"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "DELETE_polls-pollId",
+        "summary": "Delete poll",
+        "tags": [
+          "Polls"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "adminKey",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          },
+          "503": {
+            "$ref": "#/responses/trait:badGateway:503"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls": {
+      "post": {
+        "operationId": "create-poll",
+        "summary": "Create poll",
+        "tags": [
+          "Polls"
+        ],
+        "description": "Create a new poll by sending an HTTP POST to /api/v2.0/polls with an Poll object in the payload",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "sendLinkEmail",
+            "in": "query",
+            "description": "Toggle the sending of the link email to the initiator of the poll. Optional.",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/poll",
+              "example": {
+                "id": "gae6v35wzd8drgxh",
+                "adminKey": "4px57h8p",
+                "latestChange": 1506596135110,
+                "initiated": 1506410081646,
+                "participantsCount": 3,
+                "inviteesCount": 0,
+                "type": "DATE",
+                "preferencesType": "YESNO",
+                "state": "OPEN",
+                "locale": "en_CH",
+                "title": "editprefstest1",
+                "initiator": {
+                  "name": "name",
+                  "email": "name@doodle.com",
+                  "notify": true,
+                  "avatarLargeUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                  "avatarSmallUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                  "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                },
+                "options": [
+                  {
+                    "start": 1506513600000,
+                    "allday": true,
+                    "date": 1506513600000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506600000000,
+                    "allday": true,
+                    "date": 1506600000000,
+                    "available": true
+                  },
+                  {
+                    "start": 1506686400000,
+                    "allday": true,
+                    "date": 1506686400000,
+                    "available": true
+                  }
+                ],
+                "optionsHash": "148bbe863f76e9d3beb805f557355735",
+                "participants": [
+                  {
+                    "id": 1871027174,
+                    "name": "Martin Petrik",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1765143042,
+                    "name": "participant 2",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  },
+                  {
+                    "id": 1052720902,
+                    "name": "participant 3",
+                    "preferences": [
+                      1,
+                      1,
+                      1
+                    ],
+                    "smallAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/pc2dpjmdkbv4lswm49jwz7g0h41ywy8k",
+                    "largeAvatarUrl": "https://5a0131bfa95acff862b4-99aae8ea3c3a52057d88f08e6c7b007c.ssl.cf2.rackcdn.com/eralnfg5d54nfojk2kgyqjmolu1hj0vf",
+                    "userId": "tfhxf4in8ejqmpfijt4jwfxsh3k4hju1"
+                  }
+                ],
+                "invitees": [
+                  {
+                    "participantId": -95690513,
+                    "emailAddress": "HlrFnEM4dF@RjBkd.hue",
+                    "toBeRemoved": false,
+                    "participantKey": "gk672soy",
+                    "name": "in laboris tempor ea occaecat",
+                    "phoneNumber": "nisi id"
+                  },
+                  {
+                    "emailAddress": "4Ne9dsOKoTHL@aGX.cqnx",
+                    "participantId": 10850383
+                  },
+                  {
+                    "participantId": 65180210,
+                    "phoneNumber": "nisi",
+                    "emailAddress": "F6w6jkHsSqyJ@ViJEmPUUPLJdSDsPkcDAJB.wnzv",
+                    "toBeRemoved": true,
+                    "participantKey": "hmgyn1nl"
+                  },
+                  {
+                    "participantId": 26984785,
+                    "participantKey": "pa7pkwnq",
+                    "emailAddress": "NK0@WHrNHdnDKijuWYuZPxZBQwBnGuruMpIB.dyk",
+                    "phoneNumber": "labore aliqua aute",
+                    "toBeRemoved": false,
+                    "name": "nulla pariatur"
+                  }
+                ],
+                "amINotified": true,
+                "device": "WEB",
+                "premium": {
+                  "id": "7364726284372324",
+                  "domain": "mycompany"
+                },
+                "levels": "YESNO"
+              }
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "adminKey": {
+                  "type": "string"
+                },
+                "latestChange": {
+                  "type": "integer"
+                },
+                "initiated": {
+                  "type": "integer"
+                },
+                "participantsCount": {
+                  "type": "integer"
+                },
+                "inviteesCount": {
+                  "type": "integer"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "preferencesType": {
+                  "type": "string"
+                },
+                "state": {
+                  "type": "string"
+                },
+                "locale": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "initiator": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "notify": {
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "start": {
+                        "type": "integer"
+                      },
+                      "allday": {
+                        "type": "boolean"
+                      },
+                      "date": {
+                        "type": "integer"
+                      },
+                      "available": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "optionsHash": {
+                  "type": "string"
+                },
+                "participants": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                },
+                "invitees": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {}
+                  }
+                },
+                "levels": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "id": "aenqmmncvmamwxti",
+                "adminKey": "vcs9zb4q",
+                "latestChange": 1465373907974,
+                "initiated": 1465373907974,
+                "participantsCount": 0,
+                "inviteesCount": 0,
+                "type": "DATE",
+                "preferencesType": "YESNO",
+                "state": "OPEN",
+                "locale": "en",
+                "title": "Poll title",
+                "initiator": {
+                  "name": "Initiator name",
+                  "email": "test+1234@doodle-test.com",
+                  "notify": false
+                },
+                "options": [
+                  {
+                    "start": 1462017600000,
+                    "allday": true,
+                    "date": 1462017600000,
+                    "available": true
+                  }
+                ],
+                "optionsHash": "b38b35466fc5979443518dd1261cb2df",
+                "participants": [],
+                "invitees": [],
+                "levels": "YESNO"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/remaining-invitees-limit": {
+      "get": {
+        "operationId": "get-remaining-invitees-limit",
+        "summary": "Remaining invitees limit",
+        "tags": [
+          "Polls"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "remainingInviteesLimit": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}/state": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "operationId": "PUT_polls-pollId-state",
+        "summary": "Change poll state",
+        "tags": [
+          "Polls"
+        ],
+        "description": "Close or reopen a poll",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/poll"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/poll"
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          },
+          "501": {
+            "$ref": "#/responses/trait:notImplemented:501"
+          },
+          "503": {
+            "$ref": "#/responses/trait:badGateway:503"
+          }
+        }
+      }
+    },
+    "/polls/{pollId}/notify-user": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "operationId": "GET_polls-pollId-notify-user",
+        "summary": "Current notifications settings",
+        "tags": [
+          "Polls"
+        ],
+        "description": "Get the current email/push notification setting of a logged-in user for a given poll by sending an HTTP GET to /api/v2.0/polls/{pollId}/notify-user",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "notify": true
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "put": {
+        "operationId": "PUT_polls-pollId-notify-user",
+        "summary": "Enable/disable user notifications",
+        "tags": [
+          "Polls"
+        ],
+        "description": "Enable/disable email/push notifications of a logged-in user for a given poll by sending an HTTP PUT to /api/v2.0/polls/{pollId}/notify-user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/user",
+              "example": {
+                "notify": true
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/user"
+            },
+            "examples": {
+              "application/json": {
+                "notify": true
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}/adminkey": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "operationId": "PUT_polls-pollId-adminkey",
+        "summary": "Reset admin key",
+        "tags": [
+          "Polls"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/poll",
+              "example": {
+                "adminkey": "adminkeyrequired"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/poll"
+            },
+            "examples": {
+              "application/json": {
+                "id": "aenqmmncvmamwxti",
+                "adminKey": "vcs9zb4q",
+                "latestChange": 1465373907974,
+                "initiated": 1465373907974,
+                "participantsCount": 0,
+                "inviteesCount": 0,
+                "type": "DATE",
+                "preferencesType": "YESNO",
+                "state": "OPEN",
+                "locale": "en",
+                "title": "Poll title",
+                "initiator": {
+                  "name": "Initiator name",
+                  "email": "test+1234@doodle-test.com",
+                  "notify": false
+                },
+                "options": [
+                  {
+                    "start": 1462017600000,
+                    "allday": true,
+                    "date": 1462017600000,
+                    "available": true
+                  }
+                ],
+                "optionsHash": "b38b35466fc5979443518dd1261cb2df",
+                "participants": [],
+                "invitees": [],
+                "levels": "YESNO"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}/history": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "operationId": "GET_polls-pollId-history",
+        "summary": "Poll history",
+        "tags": [
+          "Polls"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "adminkey",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/history"
+            },
+            "examples": {
+              "application/json": {
+                "events": [
+                  {
+                    "dateTime": 1506410081646,
+                    "type": "POLL_ADDED",
+                    "name": "Name",
+                    "options": [
+                      {
+                        "start": 1506513600000,
+                        "allday": true,
+                        "date": 1506513600000,
+                        "available": true
+                      },
+                      {
+                        "start": 1506600000000,
+                        "allday": true,
+                        "date": 1506600000000,
+                        "available": true
+                      },
+                      {
+                        "start": 1506686400000,
+                        "allday": true,
+                        "date": 1506686400000,
+                        "available": true
+                      }
+                    ]
+                  },
+                  {
+                    "dateTime": 1506410933082,
+                    "type": "POLL_CHANGED",
+                    "name": "Name",
+                    "options": [
+                      {
+                        "start": 1506513600000,
+                        "allday": true,
+                        "date": 1506513600000,
+                        "available": true
+                      },
+                      {
+                        "start": 1506600000000,
+                        "allday": true,
+                        "date": 1506600000000,
+                        "available": true
+                      },
+                      {
+                        "start": 1506686400000,
+                        "allday": true,
+                        "date": 1506686400000,
+                        "available": true
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}/notify-initiator": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "operationId": "PUT_polls-pollId-notify-initiator",
+        "summary": "Enable/disable the initiator notifications",
+        "tags": [
+          "Polls"
+        ],
+        "description": "Enable/disable the initiator's email/push notifications for a given poll by sending an HTTP PUT to /api/v2.0/polls/{pollId}/notify-initiator",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "adminkey",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/initiator",
+              "example": {
+                "notify": true
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/initiator"
+            },
+            "examples": {
+              "application/json": {
+                "notify": true
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}/export-links": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "operationId": "GET_polls-pollId-export-links",
+        "summary": "Export links",
+        "tags": [
+          "Polls"
+        ],
+        "description": "Get links to the Excel and PDF export of a poll by sending an HTTP GET to /api/v2.0/polls/{pollId}/export-links",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "adminkey",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "participantkey",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "timezone",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/exportlinks"
+            },
+            "examples": {
+              "application/json": {
+                "excel": "https://excelexport.link",
+                "pdf": "http://pdfexport.link"
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}/export": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "operationId": "GET_polls-pollId-export",
+        "summary": "Export of final options",
+        "tags": [
+          "Polls"
+        ],
+        "description": "Get an [ICS/XLS/PDF] export of a poll's final options by sending an HTTP GET to /api/v2.0/polls/{pollId}/export",
+        "parameters": [
+          {
+            "name": "formatType",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "adminKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "participantKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "timeZone",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "download",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/subscriptions": {
+      "get": {
+        "operationId": "GET_subscriptions",
+        "summary": "Get subscriptions",
+        "tags": [
+          "Subscriptions"
+        ],
+        "description": "Get a list of Doodle Premium plans a user can buy/try by sending an HTTP GET to /api/v2.0/subscriptions<br/>\n     If an Access-Token is sent in the HTTP header of the request, this returns the list of plans the currently logged-in user can buy/try.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Access-token",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/subscription"
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "type": "FULL",
+                  "durationInMonths": 3,
+                  "id": "com.doodle.ios.premium_private_3m",
+                  "expiration": 1516016123200
+                },
+                {
+                  "type": "FULL",
+                  "durationInMonths": 12,
+                  "id": "com.doodle.ios.premium_private_12m",
+                  "expiration": 1539603323200
+                }
+              ]
+            }
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/subscriptions/{subscriptionId}/buy": {
+      "parameters": [
+        {
+          "name": "subscriptionId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "operationId": "POST_subscriptions-subscriptionId-buy",
+        "summary": "Buy a premium doodle plan",
+        "tags": [
+          "Subscriptions"
+        ],
+        "description": "Buy a Premium Doodle plan for a user by sending an HTTP POST to /api/v2.0/subscriptions/{subscriptionId}/buy<br/>\n     This method requires an Access-Token to be sent in the HTTP header of the request",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "receiptData": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "receiptData"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/subscription"
+            },
+            "examples": {
+              "application/json": {
+                "type": "TRIAL",
+                "durationInMonths": 3,
+                "id": "generateedID",
+                "expiration": 21378659970,
+                "isBusiness": true
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}/participants": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "pattern": "^[a-z0-9]{16}"
+        }
+      ],
+      "post": {
+        "operationId": "create-participant",
+        "summary": "Create participant",
+        "tags": [
+          "Participants"
+        ],
+        "description": "Add a participant by sending an HTTP POST to /api/v2.0/polls/{pollId}/participants with a participant object in the payload",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/participant",
+              "example": {
+                "name": "name",
+                "targetCalendarId": "calendarID",
+                "firstName": "fist name",
+                "lastName": "last name",
+                "postalAddress": "adress strett",
+                "email": "mail@provider.com",
+                "phoneNumber": "+1231 1231",
+                "preferences": [
+                  2,
+                  0,
+                  1
+                ],
+                "optionsHash": "hash",
+                "smallAvatarUrl": "htts://www.domain.com/avatar.png",
+                "largeAvatarUrl": "htts://www.domain.com/avatarlarge.png",
+                "largeAvatarMime": "mime",
+                "userId": "km9p2rz3l508okbk7mz41y2d1yt8b9le",
+                "syncTentatives": false,
+                "id": 40800686,
+                "participantKey": "ry912gsw"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/participant"
+            },
+            "examples": {
+              "application/json": {
+                "id": 306875546,
+                "name": "Zoidberg",
+                "preferences": [
+                  0,
+                  0
+                ]
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "delete-all-participants",
+        "summary": "Delete all participants",
+        "tags": [
+          "Participants"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "adminKey",
+            "in": "query",
+            "description": "Required if you want to delete a participant of a hidden or by-invitation-only poll. With the adminKey, any participant can be deleted.",
+            "required": false,
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 8,
+            "pattern": "^[a-z0-9]{8}"
+          },
+          {
+            "name": "participantKey",
+            "in": "query",
+            "description": "Required if you want to delete a participant of a by-invitation-only poll and you don't provide the adminKey.",
+            "required": false,
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 8,
+            "pattern": "^[a-z0-9]{8}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        }
+      }
+    },
+    "/polls/{pollId}/participants/{participantId}": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "description": "a poll ID",
+          "required": true,
+          "type": "string",
+          "pattern": "^[a-z0-9]{16}"
+        },
+        {
+          "name": "participantId",
+          "in": "path",
+          "description": "a participant ID",
+          "required": true,
+          "type": "number"
+        }
+      ],
+      "put": {
+        "operationId": "edit-participant",
+        "summary": "Edit participant",
+        "tags": [
+          "Participants"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "adminKey",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/participant",
+              "example": {
+                "id": 40800686,
+                "name": "name",
+                "targetCalendarId": "calendarID",
+                "firstName": "fist name",
+                "lastName": "last name",
+                "postalAddress": "adress strett",
+                "email": "mail@provider.com",
+                "phoneNumber": "+1231 1231",
+                "preferences": [
+                  2,
+                  0,
+                  1
+                ],
+                "optionsHash": "hash",
+                "smallAvatarUrl": "htts://www.domain.com/avatar.png",
+                "largeAvatarUrl": "htts://www.domain.com/avatarlarge.png",
+                "largeAvatarMime": "mime",
+                "userId": "km9p2rz3l508okbk7mz41y2d1yt8b9le",
+                "syncTentatives": false,
+                "participantKey": "ry912gsw"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/participant"
+            },
+            "examples": {
+              "application/json": {
+                "id": 40800686,
+                "name": "name",
+                "targetCalendarId": "calendarID",
+                "firstName": "fist name",
+                "lastName": "last name",
+                "postalAddress": "adress strett",
+                "email": "mail@provider.com",
+                "phoneNumber": "+1231 1231",
+                "preferences": [
+                  2,
+                  0,
+                  1
+                ],
+                "optionsHash": "hash",
+                "smallAvatarUrl": "htts://www.domain.com/avatar.png",
+                "largeAvatarUrl": "htts://www.domain.com/avatarlarge.png",
+                "largeAvatarMime": "mime",
+                "userId": "km9p2rz3l508okbk7mz41y2d1yt8b9le",
+                "syncTentatives": false,
+                "participantKey": "ry912gsw"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      },
+      "delete": {
+        "operationId": "DELETE_polls-pollId-participants-participantId",
+        "summary": "Delete participant",
+        "tags": [
+          "Participants"
+        ],
+        "parameters": [
+          {
+            "name": "adminKey",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "participantKey",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          },
+          "503": {
+            "$ref": "#/responses/trait:badGateway:503"
+          }
+        }
+      }
+    },
+    "/polls/{pollId}/comments": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "operationId": "POST_polls-pollId-comments",
+        "summary": "Create comment",
+        "tags": [
+          "Comments"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "adminkey",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/comment",
+              "example": {
+                "author": "name of authore",
+                "timestamp": 182212561231,
+                "text": "asdasdasdasdas",
+                "userId": "4dz7a3txpfmt7ypi5rynibil9iledcgs",
+                "smallAvatarUrl": "http://small.avatar/url.pnh",
+                "largeAvatarUrl": "http://large.avatar/url.pnh"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/comment"
+            },
+            "examples": {
+              "application/json": {
+                "author": "name of authore",
+                "timestamp": 182212561231,
+                "text": "asdasdasdasdas",
+                "userId": "4dz7a3txpfmt7ypi5rynibil9iledcgs",
+                "smallAvatarUrl": "http://small.avatar/url.pnh",
+                "largeAvatarUrl": "http://large.avatar/url.pnh",
+                "id": 1243960652
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        }
+      },
+      "delete": {
+        "operationId": "DELETE_polls-pollId-comments",
+        "summary": "Delete poll's comments",
+        "tags": [
+          "Comments"
+        ],
+        "parameters": [
+          {
+            "name": "adminKey",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/polls/{pollId}/comments/{commentId}": {
+      "parameters": [
+        {
+          "name": "pollId",
+          "in": "path",
+          "required": true,
+          "type": "string",
+          "pattern": "^[a-z0-9]{16}"
+        },
+        {
+          "name": "commentId",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "operationId": "delete-comment",
+        "summary": "Delete comment",
+        "tags": [
+          "Comments"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "adminKey",
+            "in": "query",
+            "description": "Required if you want to delete a participant of a hidden or by-invitation-only poll. With the adminKey, any participant can be deleted.",
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 8,
+            "pattern": "^[a-z0-9]{8}"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "403": {
+            "$ref": "#/responses/trait:forbidden:403"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          },
+          "410": {
+            "$ref": "#/responses/trait:gone:410"
+          }
+        }
+      }
+    },
+    "/polls/{pollid}/reminders/send": {
+      "parameters": [
+        {
+          "name": "pollid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "operationId": "POST_polls-pollid-reminders-send",
+        "summary": "Send reminders",
+        "tags": [
+          "Reminders"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/reminder",
+              "example": {
+                "contactees": [
+                  "contact0@doodle.com",
+                  "contact1@doodle.com"
+                ],
+                "personalMessage": "personalMessage",
+                "adminKey": "adminKey"
+              }
+            }
+          },
+          {
+            "name": "Access-Token",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "emailAddress": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "emailAddress": "contact1@doodle.com"
+                },
+                {
+                  "emailAddress": "contact2@doodle.com"
+                }
+              ]
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          }
+        }
+      }
+    },
+    "/premium/themes/{mandatorDomain}": {
+      "parameters": [
+        {
+          "name": "mandatorDomain",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "operationId": "GET_premium-themes-mandatorDomain",
+        "summary": "Get mandator Theme",
+        "tags": [
+          "Themes"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/premiumtheme"
+            },
+            "examples": {
+              "application/json": {
+                "backgroundImage": {
+                  "url": "https://bacground.url/background.png"
+                },
+                "logoImage": {
+                  "url": "http://logo.net/logo.png"
+                },
+                "backgroundColor": "black",
+                "backgroundTiling": true,
+                "website": "doodle"
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/responses/trait:notFound:404"
+          },
+          "409": {
+            "$ref": "#/responses/trait:conflict:409"
+          }
+        }
+      }
+    },
+    "/users/me/events": {
+      "get": {
+        "operationId": "GET_users-me-events",
+        "summary": "Events",
+        "tags": [
+          "Events"
+        ],
+        "description": "Get all events of a specific calendar of a specific calendar account from a specific user by sending an HTTP GET to /api/v2.0/users/me/events<br/>\nThis method requires an Access-Token to be sent in the HTTP header of the request<br/>\nReturns all events by default of the next 30 days of a calendar which is specified with an id as a path parameter.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "query",
+            "type": "integer",
+            "minimum": 0
+          },
+          {
+            "name": "endDate",
+            "in": "query",
+            "type": "number",
+            "minimum": 0
+          },
+          {
+            "name": "calendars[]",
+            "in": "query",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/event"
+            },
+            "examples": {
+              "application/json": {
+                "id": " id",
+                "calendar": "cal name",
+                "title": "title",
+                "description": "description",
+                "startDate": 1123172717258,
+                "endDate": 132175706208,
+                "allDayEvent": true,
+                "busy": true
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/responses/trait:notAuthorized:401"
+          },
+          "503": {
+            "$ref": "#/responses/trait:badGateway:503"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    },
+    "/support/ticket": {
+      "post": {
+        "operationId": "POST_support-ticket",
+        "summary": "Ticket",
+        "tags": [
+          "Support"
+        ],
+        "description": "Create a support ticket",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "format": "email"
+          },
+          {
+            "name": "subject",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "maxLength": 1000
+          },
+          {
+            "name": "message",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "maxLength": 10000
+          },
+          {
+            "name": "language",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "label",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "upload1",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "upload2",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "upload3",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "upload4",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "upload5",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": [
+                "object",
+                "string"
+              ]
+            }
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          },
+          "503": {
+            "$ref": "#/responses/trait:serviceUnavailable:503"
+          }
+        }
+      }
+    },
+    "/users/me/pushDestinations": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Add a push destination to a user account",
+        "description": "",
+        "operationId": "addPushDestination",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Push destination",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/pushdestination"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "When the new push destination was added to the user",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "notificationChannels": {
+                  "$ref": "#/definitions/notificationchannels"
+                }
+              }
+            }
+          },
+          "304": {
+            "description": "When this push destination already existed for that user account, empty response"
+          },
+          "400": {
+            "$ref": "#/responses/trait:badRequest:400"
+          }
+        },
+        "security": [
+          {
+            "Access-Token": []
+          }
+        ]
+      }
+    }
+  },
+  "responses": {
+    "trait:notFound:404": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/notfound"
+      }
+    },
+    "trait:notAuthorized:401": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/unauthorized"
+      }
+    },
+    "trait:badRequest:400": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/badrequest"
+      }
+    },
+    "trait:forbidden:403": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/forbidden"
+      }
+    },
+    "trait:conflict:409": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/conflict"
+      }
+    },
+    "trait:gone:410": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/gone"
+      }
+    },
+    "trait:badGateway:503": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/badgateway"
+      }
+    },
+    "trait:notImplemented:501": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/notimplemented"
+      }
+    },
+    "trait:serviceUnavailable:503": {
+      "description": "",
+      "schema": {
+        "$ref": "#/definitions/serviceunavailable"
+      }
+    }
+  },
+  "definitions": {
+    "available-template": {
+      "title": "available-template",
+      "type": "object",
+      "properties": {
+        "template_name": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "object",
+          "properties": {
+            "tag_name": {
+              "type": "string"
+            },
+            "required": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "email-and-template": {
+      "title": "send-email-template",
+      "type": "object",
+      "properties": {
+        "to": {
+          "type": "string",
+          "format": "email",
+          "description": "Email to send to "
+        },
+        "substitution": {
+          "type": "object",
+          "description": "Tags that are used in the email template. (differ in each template)",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "field_xyz": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "to"
+      ]
+    },
+    "option": {
+      "title": "Option",
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "integer",
+          "description": "Required iff the option is of type DateOption, but spans over multiple days (milliseconds, seconds, minutes and hours are set to 0)",
+          "minimum": 0
+        },
+        "startDate": {
+          "type": "integer",
+          "description": "Required iff the option is of type DateOption, but spans over multiple days (milliseconds, seconds, minutes and hours are set to 0)",
+          "minimum": 0
+        },
+        "endDate": {
+          "type": "integer",
+          "description": "Required iff the option is of type DateTimeOption (milliseconds and seconds are set to 0)",
+          "minimum": 0
+        },
+        "dateTime": {
+          "type": "integer",
+          "description": "Required iff the option is of type DateTimesOption (milliseconds and seconds are set to 0)",
+          "minimum": 0
+        },
+        "startDateTime": {
+          "type": "integer",
+          "description": "Required iff the option is of type DateTimesOption (milliseconds and seconds are set to 0)",
+          "minimum": 0
+        },
+        "endDateTime": {
+          "type": "integer",
+          "description": "Required iff the option is of type DateTimesOption (milliseconds and seconds are set to 0)",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string",
+          "description": " Required iff the option is of type DateTextOption or TextOption, 1 <= trimmed length <= 128",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "isFinal": {
+          "type": "boolean",
+          "description": "When a poll is CLOSED, this indicates if the option is part of the final set of choices (NB: the field in JSON is named \"final\", not \"isFinal\" (Java keywords restrictions...))"
+        },
+        "available": {
+          "type": "boolean",
+          "description": " Whether the option is available (i.e. someone can still vote for it)"
+        },
+        "start": {
+          "type": "integer",
+          "description": "Required for date options. If allday is true, only the date part (day-month-year) will be considered, not the time part.",
+          "minimum": 0
+        },
+        "end": {
+          "type": "integer",
+          "description": "Optional for date options. If allday is true, only the date part (day-month-year) will be considered, not the time part.",
+          "minimum": 0
+        },
+        "allday": {
+          "type": "boolean",
+          "description": "Whether the date option lasts the whole day, i.e. there is no starting/ending time"
+        }
+      },
+      "example": {
+        "start": 1457694900000,
+        "end": 1457698500000,
+        "startDateTime": 1457694900000,
+        "endDateTime": 1457698500000,
+        "available": true
+      }
+    },
+    "comment": {
+      "title": "Comment",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "author": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "timestamp": {
+          "type": "integer",
+          "description": "Date and time of creation",
+          "minimum": 0
+        },
+        "text": {
+          "type": "string",
+          "description": "Comment text",
+          "maxLength": 500
+        },
+        "userId": {
+          "type": "string",
+          "description": "Contains the user ID of the author, or null if the author was not logged in. Only used when reading comments, ignored when adding or changing a comment.",
+          "maxLength": 32,
+          "pattern": "^[a-z0-9]{32}"
+        },
+        "smallAvatarUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "largeAvatarUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "author",
+        "text"
+      ],
+      "example": {
+        "id": 1327188364,
+        "author": "Tom Forrer",
+        "timestamp": 1457678974562,
+        "text": "This is a comment",
+        "userId": "zblhjxja8psgc4dbj9qty9mk8vnl08ku",
+        "smallAvatarUrl": "https://6a5edc300520d4037dd6-0732807511066685711db213ddc1d2df.ssl.cf2.rackcdn.com/lnqm77gn6oej3xgsqpv7t3kn0s6txyhz",
+        "largeAvatarUrl": "https://6a5edc300520d4037dd6-0732807511066685711db213ddc1d2df.ssl.cf2.rackcdn.com/snw8ceng29ch3zbs4pvro3t2jxswf8yk"
+      }
+    },
+    "location": {
+      "title": "Location",
+      "type": "object",
+      "description": "A geographic location",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of  a place"
+        },
+        "address": {
+          "type": "string",
+          "description": "Address of a location"
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "ISO 3166-1 alpha-2 country code",
+          "maxLength": 2
+        },
+        "locationId": {
+          "type": "string",
+          "description": "Google Maps Place ID"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "TBD",
+            "CONF",
+            "PHONE",
+            "SKYPE",
+            "ONLINE",
+            "WEBEX",
+            "GOOGLE",
+            "ZOOM"
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "example": {
+        "name": "Doodle AG",
+        "address": "Werdstrasse 21, 8004 Zürich, Switzerland",
+        "countryCode": "CH"
+      }
+    },
+    "participant": {
+      "title": "Participant",
+      "type": "object",
+      "description": "A participant.\nInternally linked to a poll, i.e. a participant is not a standalone object per se.",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "participantKey": {
+          "type": "string",
+          "description": "Required iff poll.isByInvitationOnly",
+          "minLength": 8,
+          "maxLength": 8,
+          "pattern": "^[a-z0-9]{8}"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "targetCalendarId": {
+          "type": "string",
+          "description": "A valid calendar id of logged-in user"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "Required iff poll.requireAddress",
+          "maxLength": 64
+        },
+        "lastName": {
+          "type": "string",
+          "description": "Required iff poll.requireAddress",
+          "maxLength": 64
+        },
+        "postalAddress": {
+          "type": "string",
+          "description": "Required iff poll.requireAddress",
+          "maxLength": 255
+        },
+        "email": {
+          "type": "string",
+          "description": "Required iff poll.requireEmail, must be valid (there is extensive server-side checking)",
+          "minLength": 5,
+          "maxLength": 128,
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "Required iff poll.requirePhone, must be valid (there is basic server-side checking)",
+          "minLength": 7,
+          "maxLength": 20
+        },
+        "preferences": {
+          "type": "array",
+          "description": "The answers to the poll's options, 0 = No, 1 = Yes, 2 = IfNeedBe. Required, this list's length must equal poll.options.length",
+          "items": {
+            "type": "integer",
+            "enum": [
+              0,
+              1,
+              2
+            ]
+          }
+        },
+        "optionsHash": {
+          "type": "string",
+          "description": "Required to be sent to Doodle when participating in a poll.\nThis is used by Doodle to prevent participation if a poll's options has been modified in the meantime."
+        },
+        "smallAvatarUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "largeAvatarUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "largeAvatarMime": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Contains the user ID of the participant, or null if the participant was not logged in. Only used when reading participants, ignored when adding or changing a participation.",
+          "minLength": 32,
+          "maxLength": 32,
+          "pattern": "^[a-z0-9]{32}"
+        },
+        "syncTentatives": {
+          "type": "boolean",
+          "description": "If true, all the tentative poll options will be synced. If false, only the final poll options will be synced."
+        }
+      },
+      "required": [
+        "name",
+        "preferences"
+      ],
+      "example": {
+        "id": 453451459,
+        "participantKey": "a9efasi9",
+        "name": "Tom Forrer",
+        "firstName": "Tom",
+        "lastName": "Forrer",
+        "postalAddress": "Werdstr. 21\n8048 Zürich",
+        "email": "tom.forrer@gmail.com",
+        "phoneNumber": "+41442712070",
+        "preferences": [
+          1
+        ],
+        "smallAvatarUrl": "https://6a5edc300520d4037dd6-0732807511066685711db213ddc1d2df.ssl.cf2.rackcdn.com/lnqm77gn6oej3xgsqpv7t3kn0s6txyhz",
+        "largeAvatarUrl": "https://6a5edc300520d4037dd6-0732807511066685711db213ddc1d2df.ssl.cf2.rackcdn.com/snw8ceng29ch3zbs4pvro3t2jxswf8yk",
+        "userId": "zblhjxja8psgc4dbj9qty9mk8vnl08ku"
+      }
+    },
+    "pushdestination": {
+      "title": "PushDestination",
+      "type": "object",
+      "description": "A destination for a push message.",
+      "properties": {
+        "deviceType": {
+          "type": "string",
+          "enum": [
+            "TESTCLIENT",
+            "IPHONE_TEST",
+            "IPHONE",
+            "ANDROID_TEST",
+            "ANDROID"
+          ]
+        },
+        "deviceToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deviceType"
+      ],
+      "example": {
+        "deviceToken": "1234567890abcdef1234567890abcdef",
+        "deviceType": "TESTCLIENT"
+      }
+    },
+    "user": {
+      "title": "User",
+      "type": "object",
+      "example": {
+        "name": "Tom Forrer",
+        "email": "test@doodle.com",
+        "id": "zblhjxja8psgc4dbj9qty9mk8vnl08ku",
+        "accessToken": "YulYeGaxiRRuey5lJGeEliGrm9D08Jva",
+        "newsletterOptedIn": false,
+        "avatarLargeUrl": "https://6a5edc300520d4037dd6-0732807511066685711db213ddc1d2df.ssl.cf2.rackcdn.com/snw8ceng29ch3zbs4pvro3t2jxswf8yk",
+        "avatarSmallUrl": "https://6a5edc300520d4037dd6-0732807511066685711db213ddc1d2df.ssl.cf2.rackcdn.com/lnqm77gn6oej3xgsqpv7t3kn0s6txyhz",
+        "premiumEndDate": 1461224121568,
+        "activePremium": {
+          "id": "qwe12",
+          "type": "FULL",
+          "durationInMonths": 12,
+          "expiration": 1461224121568
+        },
+        "premium": {
+          "active": {
+            "id": "7364726284372324",
+            "domain": "mycompany"
+          }
+        },
+        "timeZone": "Europe/Stockholm",
+        "countryCode": "CH",
+        "language": "en",
+        "locale": "en_CH",
+        "notificationChannels": [
+          "PUSH"
+        ],
+        "hasCustomizedBranding": false,
+        "hasActiveMeetMePage": true,
+        "hasAddressBookConnected": true
+      },
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 128,
+          "format": "email"
+        },
+        "id": {
+          "type": "string"
+        },
+        "accessToken": {
+          "type": "string",
+          "description": "It must be passed along for every method as a header that needs an authenticated user.",
+          "minLength": 32,
+          "maxLength": 32,
+          "pattern": "^[A-Za-z0-9]{32}"
+        },
+        "newsletterOptedIn": {
+          "type": "boolean"
+        },
+        "avatarLargeUrl": {
+          "type": "string",
+          "description": "URL to a 100x100 image file",
+          "format": "uri"
+        },
+        "avatarSmallUrl": {
+          "type": "string",
+          "description": "URL to a 32x32 image file",
+          "format": "uri"
+        },
+        "premiumEndDate": {
+          "type": "integer",
+          "description": "if set, this indicates when the user's active Premium Doodle subscription ends"
+        },
+        "activePremium": {
+          "$ref": "#/definitions/subscription"
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "Time zone used by this user as an Olson database name.\nExamples: \"Europe/Berlin\", \"America/North_Dakota/New_Salem\""
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "Country of this user. Format is a two-character ISO 3166 country code, upper or lower case.\nExamples: \"DE\", \"ch\"",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "language": {
+          "type": "string",
+          "description": "Language used by the user. Format is a two-character language code.\nExamples: \"de\", \"pt\", \"en\"",
+          "minLength": 2,
+          "maxLength": 2
+        },
+        "locale": {
+          "type": "string",
+          "description": "Locale of the user. Format is a two-character language code plus, optionally, a two-character ISO 3166 country code (upper case), separated by an underscore.\nExamples: \"de\", \"pt_BR\", \"en_GB\"",
+          "minLength": 2,
+          "maxLength": 5
+        },
+        "notificationChannels": {
+          "$ref": "#/definitions/notificationchannels"
+        },
+        "newEmail": {
+          "type": "string",
+          "description": "Use newEmail only for email changes",
+          "minLength": 5,
+          "maxLength": 128,
+          "format": "email"
+        },
+        "password": {
+          "type": "string",
+          "description": "NB: password is never set on an user returned by the server.",
+          "minLength": 4
+        },
+        "newPassword": {
+          "type": "string",
+          "description": "NB: newPassword is never set on an user returned by the server.\nUse it only for password change",
+          "minLength": 4
+        },
+        "activationCode": {
+          "type": "number",
+          "description": "NB: the activationCode is never set in an user returned by the server.\nUse it only for user activation (after signup)"
+        },
+        "nextPremium": {
+          "$ref": "#/definitions/subscription"
+        },
+        "push": {
+          "$ref": "#/definitions/pushdestination"
+        },
+        "pushDestination": {
+          "$ref": "#/definitions/pushdestination"
+        },
+        "premium": {
+          "$ref": "#/definitions/premiuminfo"
+        },
+        "notify": {
+          "type": "boolean",
+          "description": "Specify that this user wants to be notified about a specific poll. Return from the server the result of the request."
+        },
+        "calendarAccounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/calendaraccount"
+          }
+        },
+        "enabledCalendars": {
+          "type": "array",
+          "description": "A list of ids for the calendars displayed on the week view (calendar) of the wizard and participation, e.g. to detect calendar conflicts.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "targetCalendarId": {
+          "type": "string",
+          "description": "Id of the calendar to sync the tentative or final poll options to."
+        },
+        "syncTentatives": {
+          "type": "boolean",
+          "description": "If true, all the tentative poll options will be synced. If false, only the final poll options will be synced."
+        },
+        "hasCustomizedBranding": {
+          "type": "boolean"
+        },
+        "hasActiveMeetMePage": {
+          "type": "boolean"
+        },
+        "hasAddressBookConnected": {
+          "type": "boolean"
+        }
+      }
+    },
+    "invitee": {
+      "title": "Invitee",
+      "type": "object",
+      "description": "An invitee is a person invited by email by the poll initiator.\nInvitees can be passed in Polls during poll creation.\n\nThe list of invitees can be augmented during poll editing}",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "emailAddress": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 128,
+          "format": "email"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "minLength": 1
+        },
+        "participantKey": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 8,
+          "pattern": "^[a-z0-9]{8}"
+        },
+        "participantId": {
+          "type": "integer"
+        },
+        "toBeRemoved": {
+          "type": "boolean",
+          "description": "API consumers: use this flag to indicate that an invitee should be removed from the database. \nNB: this flag is never set on an invitee returned by the server, ie the server returns only the non-removed invitees."
+        }
+      },
+      "example": {
+        "emailAddress": "tmf+hoi@doodle.com",
+        "participantKey": "a9efasi9"
+      }
+    },
+    "poll": {
+      "title": "Poll",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "adminKey": {
+          "type": "string",
+          "description": "Key used by the poll initiator to gain access to poll administration features (edit poll, close poll, delete participant, ...)",
+          "minLength": 8,
+          "maxLength": 8,
+          "pattern": "^[a-z0-9]{8}"
+        },
+        "latestChange": {
+          "type": "number",
+          "description": "Timestamp of the latest change"
+        },
+        "initiated": {
+          "type": "number",
+          "description": "Timestamp indicating when the poll was initiated"
+        },
+        "inviteesCount": {
+          "type": "integer",
+          "description": "Number of invitees of this poll. This can only be read from the server; setting it has no effect."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "DATE",
+            "TEXT"
+          ]
+        },
+        "timeZone": {
+          "type": "boolean",
+          "description": "Poll uses timezone support."
+        },
+        "columnConstraint": {
+          "type": "integer",
+          "description": "Limits the number of participants per option.\nA poll can be used as registration form: as soon as the indicated limit has been reached, the respective option is no longer available.",
+          "minimum": 0
+        },
+        "rowConstraint": {
+          "type": "integer",
+          "description": "A participant can only choose rowConstraint options.\nCurrently, rowConstraint = null allows the selection of all options, whereas rowConstraint = 1 limits the choice to one option per participant. No other values are supported yet.",
+          "minimum": 1,
+          "maximum": 1
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "With a hidden poll, only the poll initiator can see the answers.\nIn other words, participation is confidential."
+        },
+        "byInvitationOnly": {
+          "type": "boolean",
+          "description": "Use this to restrict the participation in the poll only to people that have been invited (by email) by the poll initiator. \nNB: if no invitees are provided during poll creation, this flag is ignored, i.e. it will always be false."
+        },
+        "preferencesType": {
+          "type": "string",
+          "description": "Create a Yes/No or a Yes/No/IfNeedBe poll",
+          "enum": [
+            "YESNO",
+            "YESNOIFNEEDBE"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "description": "A poll's state restrict which actions you can perform on it",
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "DELETED"
+          ]
+        },
+        "locale": {
+          "type": "string",
+          "description": "Locale of the poll (i.e. of the initiator). Format is a two-character language code (lower case) plus, optionally, a two-character ISO 3166 country code (upper case), separated by an underscore.\nExamples: \"de\", \"pt_BR\", \"en_GB\""
+        },
+        "title": {
+          "type": "string",
+          "description": "Poll title",
+          "maxLength": 64
+        },
+        "location": {
+          "$ref": "#/definitions/location"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description",
+          "maxLength": 512
+        },
+        "initiator": {
+          "$ref": "#/definitions/initiator"
+        },
+        "options": {
+          "type": "array",
+          "description": "Poll options are the \"questions\" the initiator asks the participants.\nIf the poll has timezone support, dates are absolute points in time, represented as unix timestamps in the JSON, and all options must be of type DateTimeOption or DateTimesOption.\nIf the poll has no timezone, dates are floating to the user. For data exchange, they are converted to absolute points in time using the GMT-12 time zone, and then represented as unix timestamps in the JSON. To render a human-readable string, interpret the unix timestamp in the GMT-12 timezone.\nIf the poll type is TEXT, the poll must only have text options.\nIf the poll type is DATE, the poll must not have text options.",
+          "items": {
+            "$ref": "#/definitions/option"
+          }
+        },
+        "optionsHash": {
+          "type": "string"
+        },
+        "participants": {
+          "type": "array",
+          "description": "Participants of a poll",
+          "items": {
+            "$ref": "#/definitions/participant"
+          }
+        },
+        "invitees": {
+          "type": "array",
+          "description": "List of people invited to participate in a \"by-invitation\" poll.\nBe aware that in order to prevent spamming, there is a server-enforced limit to the number of people that can be invited.",
+          "items": {
+            "$ref": "#/definitions/invitee"
+          }
+        },
+        "askAddress": {
+          "type": "boolean",
+          "description": "The poll asks for a postal address upon participation"
+        },
+        "askEmail": {
+          "type": "boolean",
+          "description": "The poll asks for an email address upon participation"
+        },
+        "askPhone": {
+          "type": "boolean",
+          "description": "The poll asks for a phone number upon participation"
+        },
+        "levels": {
+          "type": "string",
+          "enum": [
+            "YESNO",
+            "YESNOIFNEEDBE"
+          ]
+        },
+        "multiday": {
+          "type": "boolean"
+        },
+        "dateText": {
+          "type": "boolean",
+          "description": "indicate if a DATE poll contains DateTextOptions (used in Dashboard Polls)"
+        },
+        "amINotified": {
+          "type": "boolean",
+          "description": " When a user is provided, it tells if the user should be notified or not for this poll. If no user is provided return false."
+        },
+        "evernoteLink": {
+          "type": "string",
+          "description": "A URL to an attached Evernote note",
+          "format": "uri"
+        },
+        "personalMessage": {
+          "type": "string",
+          "description": "A personal message sent for a \"by-invitation\" poll.",
+          "maxLength": 3000
+        },
+        "comments": {
+          "description": "A list of comments in this poll",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/comment"
+          }
+        },
+        "closed": {
+          "type": "string"
+        },
+        "participantsCount": {
+          "type": "integer",
+          "description": "Number of participants of this poll. Note that a poll can have more participants than invitees, unless it is a byInvitation poll. This can only be read from the server; setting it has no effect."
+        },
+        "language": {
+          "type": "string",
+          "description": "@Deprecated"
+        },
+        "initiatorParticipates": {
+          "type": "boolean",
+          "description": "Set this to true if the poll initiator wants to participate in a poll he created that is by invitation only (byInvitationOnly = true). NB: this field is never set in an user returned by the server."
+        },
+        "device": {
+          "type": "string",
+          "description": "Store the device where the poll was created",
+          "enum": [
+            "TESTCLIENT",
+            "TEST",
+            "IPHONE",
+            "IPHONE_TEST",
+            "IPHONE_ALPHA",
+            "IPHONE_BETA",
+            "ANDROID",
+            "MEEKAN",
+            "MOBILE",
+            "DESKTOP",
+            "WEB"
+          ]
+        },
+        "premium": {
+          "$ref": "#/definitions/premiumid"
+        }
+      },
+      "required": [
+        "type",
+        "title",
+        "initiator",
+        "options"
+      ]
+    },
+    "exportlinks": {
+      "title": "ExportLinks",
+      "type": "object",
+      "properties": {
+        "excel": {
+          "type": "string",
+          "format": "uri"
+        },
+        "pdf": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "initiator": {
+      "title": "Initiator",
+      "type": "object",
+      "description": "A poll initiator, a.k.a. poll admin. The creator of the poll.",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the poll creator",
+          "maxLength": 32
+        },
+        "email": {
+          "type": "string",
+          "description": "E-Mail of the poll creator, must be valid (there is extensive server-side checking)",
+          "minLength": 5,
+          "maxLength": 128,
+          "format": "email"
+        },
+        "notify": {
+          "type": "boolean",
+          "description": "Set to true to be notified (by email and push notifications) about the polls created by this initiator."
+        },
+        "avatarLargeUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "avatarSmallUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "participantKey": {
+          "type": "string",
+          "description": "participantKey of the initiator will be returned when requesting a poll that was created with the byInvitationOnly and initiatorParticipates flags at true."
+        },
+        "timeZone": {
+          "type": "string",
+          "description": "The time zone used by the initiator to create the poll, if any. Always an Olson DB name (e.g. \"Europe/Zurich\")."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Optional, userId of an User"
+        },
+        "push": {
+          "$ref": "#/definitions/pushdestination"
+        }
+      },
+      "example": {
+        "name": "my name",
+        "email": "tmf+test@doodle.com",
+        "notify": true,
+        "avatarLargeUrl": "https://6a5edc300520d4037dd6-0732807511066685711db213ddc1d2df.ssl.cf2.rackcdn.com/snw8ceng29ch3zbs4pvro3t2jxswf8yk",
+        "avatarSmallUrl": "https://6a5edc300520d4037dd6-0732807511066685711db213ddc1d2df.ssl.cf2.rackcdn.com/lnqm77gn6oej3xgsqpv7t3kn0s6txyhz",
+        "participantKey": "uvgfgh4g",
+        "timeZone": "Europe/Zurich",
+        "userId": "zblhjxja8psgc4dbj9qty9mk8vnl08ku"
+      }
+    },
+    "reminder": {
+      "title": "Reminder",
+      "type": "object",
+      "properties": {
+        "contactees": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "personalMessage": {
+          "type": "string"
+        },
+        "adminKey": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "contactees": [
+          "contact0@doodle.com",
+          "contact1@doodle.com"
+        ],
+        "personalMessage": "personalMessage",
+        "adminKey": "adminKey"
+      }
+    },
+    "premiumtheme": {
+      "title": "PremiumTheme",
+      "type": "object",
+      "properties": {
+        "backgroundImage": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "logoImage": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri"
+            }
+          }
+        },
+        "backgroundColor": {
+          "type": "string"
+        },
+        "backgroundTiling": {
+          "type": "boolean"
+        },
+        "website": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "backgroundImage": {
+          "url": "https://bb6dcf512b33241ef106-b12771d2b2eb9c49cc5bd30e7bd6a290.ssl.cf2.rackcdn.com/ouunwfqjxnm0t66zrywacrctfsxa0osq"
+        },
+        "logoImage": {
+          "url": "https://bb6dcf512b33241ef106-b12771d2b2eb9c49cc5bd30e7bd6a290.ssl.cf2.rackcdn.com/0z9kuw6dfszznyw68yjzfv3egpqzp4qr"
+        },
+        "backgroundColor": "#000000",
+        "backgroundTiling": true
+      }
+    },
+    "subscription": {
+      "title": "Subscription",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "TRIAL",
+            "FULL"
+          ]
+        },
+        "durationInMonths": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "id": {
+          "type": "string"
+        },
+        "expiration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "isBusiness": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "durationInMonths",
+        "id",
+        "expiration"
+      ],
+      "example": {
+        "type": "FULL",
+        "durationInMonths": 3,
+        "id": "com.doodle.ios.premium_private_3m",
+        "expiration": 1516016123200,
+        "isBusiness": true
+      }
+    },
+    "premiuminfo": {
+      "title": "PremiumInfo",
+      "type": "object",
+      "properties": {
+        "active": {
+          "$ref": "#/definitions/premiumid"
+        }
+      }
+    },
+    "premiumid": {
+      "title": "PremiumId",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the Premium account (mandator). We use a String representation, as that gives us more flexibility."
+        },
+        "domain": {
+          "type": "string",
+          "description": "The domain associated to the Premium account (mandator)."
+        }
+      },
+      "example": {
+        "id": "id",
+        "domain": "mycompany"
+      }
+    },
+    "addressBookIncrement": {
+      "title": "AddressBookIncrement",
+      "type": "object",
+      "properties": {
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/contact"
+          }
+        },
+        "timestamp": {
+          "type": "integer",
+          "description": "representing when the first batch of contacts, or the batch of modified contacts was returned"
+        },
+        "hash": {
+          "type": "string",
+          "description": "hash received representing the currently connected address book accounts (Google, iCloud, etc.)"
+        },
+        "moreAccounts": {
+          "type": "boolean",
+          "description": "flag telling if there are more address book accounts to be queried than the one currently being queried"
+        },
+        "moreContactsInAccount": {
+          "type": "boolean",
+          "description": "flag telling if there are more contacts to be retrieved from the same address book account"
+        },
+        "reinit": {
+          "type": "boolean",
+          "description": "flag telling if all contacts have to be retrieved again"
+        }
+      },
+      "example": {
+        "contacts": [
+          {
+            "name": "name",
+            "id": "1",
+            "emails": [
+              "mail@doodle.com",
+              "mail2@doodle.com"
+            ],
+            "groups": [
+              "gr1",
+              "gr2"
+            ]
+          }
+        ],
+        "timestamp": 1505822355,
+        "hash": "d41d8cd98f00b204e9800998ecf8427e",
+        "moreAccounts": true,
+        "moreContactsInAccount": true,
+        "reinit": true
+      }
+    },
+    "badrequest": {
+      "title": "BadRequest",
+      "type": "object",
+      "properties": {
+        "errorType": {
+          "type": "string"
+        },
+        "details": {
+          "type": "object",
+          "properties": {
+            "success": {
+              "type": "boolean"
+            },
+            "messages": {
+              "type": "object",
+              "properties": {
+                "INVITEE": {
+                  "type": "string"
+                }
+              }
+            },
+            "invalidValues": {
+              "type": "object",
+              "properties": {
+                "INVITEE": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "errors": {
+              "type": "object",
+              "properties": {
+                "INVITEE": {
+                  "type": "string"
+                }
+              }
+            },
+            "": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "forbidden": {
+      "title": "Forbidden",
+      "type": "object",
+      "properties": {
+        "errorType": {
+          "type": "string",
+          "description": "",
+          "enum": [
+            "INVALID_PARTICIPANT_KEY",
+            "UNKNOWN"
+          ]
+        }
+      }
+    },
+    "notfound": {
+      "title": "NotFound",
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "conflict": {
+      "title": "Conflict",
+      "type": "object",
+      "properties": {
+        "errorType": {
+          "type": "string"
+        },
+        "messageEnglish": {
+          "type": "string"
+        },
+        "messageLocalized": {
+          "type": "string"
+        }
+      }
+    },
+    "gone": {
+      "title": "Gone",
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "unauthorized": {
+      "title": "NotAuthorized",
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "calendaraccount": {
+      "title": "CalendarAccount",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "accountType": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "calendars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/calendar"
+          }
+        }
+      }
+    },
+    "calendar": {
+      "title": "Calendar",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "primary": {
+          "type": "boolean"
+        },
+        "writable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "emails": {
+          "type": "array",
+          "uniqueItems": true,
+          "description": "A list of email addresses",
+          "items": {
+            "type": "string",
+            "format": "email"
+          }
+        },
+        "groups": {
+          "type": "array",
+          "description": "A list of group names",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "event": {
+      "title": "Event",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "calendar": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "endDate": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "allDayEvent": {
+          "type": "boolean"
+        },
+        "busy": {
+          "type": "boolean"
+        }
+      }
+    },
+    "history": {
+      "title": "History",
+      "type": "object",
+      "properties": {
+        "dateTime": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "PARTICIPANT_ADDED",
+            "PARTICIPANT_CHANGED",
+            "PARTICIPANT_DELETED",
+            "POLL_ADDED",
+            "POLL_CHANGED",
+            "POLL_CLOSED",
+            "POLL_DELETED",
+            "POLL_REOPENED",
+            "COMMENT_ADDED",
+            "FINAL_PICKED",
+            "REMINDER_SENT",
+            "PARTICIPANTS_INVITED",
+            "INVITEES_CONTACTED",
+            "COMMENT_DELETED",
+            "ALL_PARTICIPANTS_DELETED",
+            "ALL_COMMENTS_DELETED",
+            "POLL_RESET_ADMIN"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/option"
+          }
+        }
+      }
+    },
+    "badgateway": {
+      "title": "BadGateway",
+      "type": "object",
+      "properties": {
+        "errorType": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "array"
+            ],
+            "items": {}
+          }
+        }
+      }
+    },
+    "notimplemented": {
+      "title": "NotImplemented",
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "serviceunavailable": {
+      "title": "ServiceUnavailable",
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "notificationchannels": {
+      "type": "array",
+      "description": "The user’s preferred notification channels",
+      "items": {
+        "type": "string",
+        "enum": [
+          "EMAIL",
+          "PUSH"
+        ]
+      },
+      "title": "NotificationChannels"
+    }
+  }
+}
